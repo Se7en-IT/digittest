@@ -27,6 +27,7 @@ export default function Login() {
     if (response.status === 401) {
       setError(true)
     } else {
+      sessionStorage.set('token', (await response.json()).token)
       router.push('/')
     }
   }
